@@ -1,0 +1,142 @@
+/* Ensure the container covers the full viewport height and centers its content */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure full height, including navbar */
+    width: 100vw; /* Ensure full width */
+    background-color: #f3f0ff;
+    box-sizing: border-box; /* Prevent width/height calculations issues */
+    padding: 20px;
+    margin: 0;
+}
+
+/* Adjust navbar styling for better layout across screen sizes */
+.navbar {
+    background-color: #7b8cde;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+}
+
+
+
+
+
+/* Navbar links styling */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Make navbar items wrap on smaller screens */
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Adjust login-box to be responsive */
+.login-box {
+    background-color: #7b8cde;
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 40px;
+}
+
+/* Enhance font scaling for smaller screens */
+.login-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Adjust input fields for better responsiveness */
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white; /* Set background color to white */
+    color: black; /* Set text color to black */
+}
+
+/* Improve button scaling for all screen sizes */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+.password-options{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between; /* Keeps "Forgot Password" on the right */
+    margin-top: 10px;
+    gap: 30px;
+    width:300px;
+    
+
+}
+
+.password-options .show-password {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Adds spacing between the checkbox and the text */
+
+  
+}
+
+.password-options .show-password input {
+    margin: 0;
+}
+
+.forgot-password {
+    font-size: 14px;
+    color: #0000ff; /* Change this to your preferred link color */
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Make footer links and signup link responsive */
+.signup-link {
+    font-size: 14px;
+    margin-top: 20px;
+    text-align: center;
+    
+}
+
+/* Ensure responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-box {
+        padding: 20px;
+    }
+
+    .login-box h2 {
+        font-size: 18px;
+    }
+}

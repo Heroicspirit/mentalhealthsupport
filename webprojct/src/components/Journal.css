@@ -1,0 +1,356 @@
+/* General Styles */
+.journal-page {
+    min-height: 100vh;
+    background: #c3a2e2;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #7b8cde;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .nav-left {
+    display: flex;
+    gap: 25px;
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar a.active {
+    background: #3d1f71;
+    border-radius: 5px;
+  }
+  
+  .navbar a:hover:not(.active) {
+    background: rgba(61, 31, 113, 0.5);
+    border-radius: 5px;
+  }
+  
+  /* Main Container */
+  .journal-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  
+  .main-content {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .sidebar {
+    width: 300px;
+    flex-shrink: 0;
+  }
+  
+  /* Header Section */
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .header-section h1 {
+    color: #3d1f71;
+    margin: 0;
+    font-size: 32px;
+  }
+  
+  .new-entry-btn {
+    background: #3d1f71;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .new-entry-btn:hover {
+    background: #2d1753;
+  }
+  
+  /* Entry Form */
+  .entry-form {
+    background: #b19cd9;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #3d1f71;
+    font-weight: bold;
+  }
+  
+  .form-group input[type="date"],
+  .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background: white;
+  }
+  
+  .mood-scale {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .mood-scale input[type="range"] {
+    flex: 1;
+  }
+  
+  .mood-scale span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3d1f71;
+  }
+  
+  .symptoms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .symptom-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #3d1f71;
+  }
+  
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .save-btn {
+    background: #3d1f71;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-btn:hover {
+    background: #2d1753;
+  }
+  
+  /* Entries List */
+  .entries-list {
+    display: grid;
+    gap: 20px;
+  }
+  
+  .entry-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: #583c87;
+    font-weight: bold;
+  }
+  
+  .entry-card h3 {
+    color: #3d1f71;
+    margin: 0 0 10px 0;
+  }
+  
+  /* Add explicit color for entry content */
+  .entry-card p {
+    color: #333333; /* Dark gray color for better readability */
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  
+  .entry-symptoms {
+    margin-top: 10px;
+    color: #583c87;
+    font-style: italic;
+  }
+  
+  .entry-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background: #3d1f71;
+    color: white;
+  }
+  
+  .delete-btn {
+    background: #d9534f;
+    color: white;
+  }
+  
+  .edit-btn:hover {
+    background: #2d1753;
+  }
+  
+  .delete-btn:hover {
+    background: #c9302c;
+  }
+  
+  /* Emergency Contacts */
+  .emergency-contacts {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .emergency-contacts h2 {
+    color: #3d1f71;
+    margin: 0 0 15px 0;
+    font-size: 24px;
+  }
+  
+  .emergency-contacts p {
+    margin: 10px 0;
+    color: #583c87;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 1600px) {
+    .journal-container {
+      max-width: 1600px;
+    }
+  
+    .entry-form {
+      padding: 40px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .journal-container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .nav-left,
+    .nav-right {
+      width: 100%;
+      justify-content: center;
+      gap: 15px;
+    }
+  
+    .header-section {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+  
+    .journal-container {
+      padding: 0 15px;
+      margin: 20px auto;
+    }
+  
+    .entry-form {
+      padding: 20px;
+    }
+  
+    .symptoms-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar a {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  
+    .header-section h1 {
+      font-size: 24px;
+    }
+  
+    .symptoms-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .entry-header {
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
+  
+  

@@ -1,0 +1,82 @@
+/* .app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f3f0ff;
+}
+
+/* Navbar styles - applied globally */
+.navbar {
+  background-color: #7b8cde;
+  padding: 15px 40px;
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: auto; /* Push other elements to the right */
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
+
+.nav-links a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* For consistent link styling across the app */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* For consistent button styling across the app */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+/* For consistent form element styling */
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
