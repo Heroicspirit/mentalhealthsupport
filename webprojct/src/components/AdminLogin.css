@@ -1,0 +1,112 @@
+/* Navbar Styling */
+.admin-nav {
+    width: 100%;
+    background: #007bff; /* A deeper blue for contrast */
+    padding: 15px 0;
+    position: fixed; /* Keeps navbar at the top */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.admin-nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.admin-nav ul li a:hover {
+    color: #f8d210; /* A yellow accent color */
+}
+
+/* Main Page Styling */
+.admin-login-page {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Pushes content below navbar */
+}
+
+/* Welcome Text */
+.admin-welcome {
+    margin-bottom: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Login Form */
+.admin-login-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+}
+
+.admin-login-container label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.admin-login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+/* Login Button */
+.admin-login-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    background: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    transition: background 0.3s ease-in-out;
+}
+
+.admin-login-container button:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-nav ul {
+        gap: 15px;
+    }
+
+    .admin-nav ul li a {
+        font-size: 16px;
+    }
+
+    .admin-login-container {
+        width: 90%;
+    }
+}

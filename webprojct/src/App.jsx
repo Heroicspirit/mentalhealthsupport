@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Appointment from "./components/Appointment"; // Import the Appointment component
 import Journal from "./components/Journal";
-
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/appointments" element={<Appointment />} /> {/* Route to Appointment page */}
           <Route path="/journal" element={<Journal />} />
-
+          <Route path="/adminlogin" element={<AdminLogin />} />
         </Routes>
       </div>
     </Router>
