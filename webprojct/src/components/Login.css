@@ -76,6 +76,7 @@
 
 /* Improve button scaling for all screen sizes */
 .login-button {
+    background: #3D1F71;
     width: 100%;
     padding: 12px;
     font-size: 16px;

@@ -1,17 +1,31 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import axios
 import splashjpg from "../assets/splash.jpg"; // Correct path to splash.jpg
 import "./AdminLogin.css";
 
 const AdminLogin = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(""); // State for error messages
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Admin Login:", login, "Password:", password);
-    // Add authentication logic here
+    setError(""); // Reset error message
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/admin/login", {
+        email: login,
+        password: password,
+      });
+
+      localStorage.setItem("adminToken", response.data.token); // Store token
+      console.log("Login successful!");
+      navigate("/admin-dashboard"); // Redirect to admin dashboard
+    } catch (err) {
+      setError(err.response?.data?.message || "Login failed");
+    }
   };
 
   return (
@@ -56,6 +70,8 @@ const AdminLogin = () => {
             />
 
             <button type="submit">Login</button>
+
+            {error && <p className="error-message">{error}</p>} {/* Show error message */}
           </form>
         </div>
       </div>

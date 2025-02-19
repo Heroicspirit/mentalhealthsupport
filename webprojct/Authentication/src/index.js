@@ -7,6 +7,8 @@ import { appointmentRouter } from "./route/appointment/appointmentRoute.js";
 import { journalRouter } from "./route/journal/journalRoute.js";
 import dotenv from "dotenv";
 import { authenticateToken } from "./middleware/token-middleware.js";
+import {adminRouter} from "./route/adminlogin/adminloginRoute.js";
+
 
 dotenv.config();
 
@@ -29,6 +31,8 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", authenticateToken, userRouter);
 app.use("/api/appointments", authenticateToken, appointmentRouter);
 app.use("/api/journals", authenticateToken, journalRouter);
+app.use("/api/admin", adminRouter);
+
 
 app.get("/api/test", (req, res) => {
   res.json({ message: "CORS is working!" });

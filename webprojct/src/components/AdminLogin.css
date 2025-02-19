@@ -1,7 +1,7 @@
 /* Navbar Styling */
 .admin-nav {
     width: 100%;
-    background: #007bff; /* A deeper blue for contrast */
+    background: #7b8cde; /* A deeper blue for contrast */
     padding: 15px 0;
     position: fixed; /* Keeps navbar at the top */
     top: 0;
@@ -78,6 +78,15 @@
     font-size: 16px;
 }
 
+button {
+    background: #7b8cde;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
 /* Login Button */
 .admin-login-container button {
     width: 100%;

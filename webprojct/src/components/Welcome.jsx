@@ -59,6 +59,43 @@ const Welcome = () => {
           <img src="/src/assets/MHS.jpg" alt="Mental Health Illustration" />
         </div>
       </section>
+
+      <section id="services" className="services">
+        <h2>Our Support Services</h2>
+        <div className="service" data-url="mindfulness.html">
+          <h3>Mindfulness Programs</h3>
+          <p>Learn techniques for stress management regulations through guided practices.</p>
+        </div>
+        <div className="service-gallery">
+          <img src="/src/assets/therapy.jpg" alt="Counseling Session" />
+          <img src="/src/assets/happy.jpg" alt="Meditation Outdoors" />
+          <img src="/src/assets/group.jpg" alt="Group Therapy" />
+        </div>
+      </section>
+
+      <footer>
+        <div className="footer-container">
+          <div className="footer-left">
+            <p>Supporting your mental journey with professional care and compassion.</p>
+          </div>
+          <div className="footer-right" id="contact">
+            <div className="quick-links">
+              <h4>Quick Links</h4>
+              <a href="#">Home</a>
+              <a href="#">About Us</a>
+              <a href="#">Services</a>
+              <a href="#">Contact</a>
+            </div>
+            <div className="contact-info">
+              <h4>Contact</h4>
+              <p>123 Healing Street</p>
+              <p>Wellness City, WC 12345</p>
+              <p>Email: info@mentalhealth.com</p>
+              <p>Tel: (555) 123-4567</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
