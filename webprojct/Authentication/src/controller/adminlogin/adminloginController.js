@@ -3,17 +3,22 @@ import dotenv from "dotenv";
 import AdminLogin from "../../models/adminlogin/adminloginModel.js";
 
 dotenv.config();
-//hello
+
 // Admin Login
 export const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Validate input
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: "Email and password are required" });
+    }
+
     // Find admin by email
     const admin = await AdminLogin.findOne({ where: { email } });
 
     if (!admin) {
-      return res.status(401).json({ success: false, message: "Admin not found" });
+      return res.status(404).json({ success: false, message: "Admin not found" });
     }
 
     // Direct password comparison (no bcrypt)
@@ -22,13 +27,14 @@ export const adminLogin = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ id: admin.id, email: admin.email }, process.env.JWT_SECRET_KEY, {
+    const token = jwt.sign({ id: admin.id, email: admin.email }, process.env.secretkey, {
       expiresIn: process.env.expiresIn,
     });
 
-    res.json({ success: true, token });
+    return res.status(200).json({ success: true, token });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Server error", error: error.message });
+    console.error(error);
+    return res.status(500).json({ success: false, message: "Server error", error: error.message });
   }
 };
 
@@ -37,15 +43,22 @@ export const createAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    // Validate input
+    if (!email || !password) {
+      return res.status(400).json({ success: false, message: "Email and password are required" });
+    }
+
     const existingAdmin = await AdminLogin.findOne({ where: { email } });
     if (existingAdmin) {
       return res.status(400).json({ success: false, message: "Admin already exists" });
     }
 
+    // Create a new admin
     const newAdmin = await AdminLogin.create({ email, password });
 
-    res.status(201).json({ success: true, message: "Admin created successfully", admin: newAdmin });
+    return res.status(201).json({ success: true, message: "Admin created successfully", admin: newAdmin });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Error creating admin", error: error.message });
+    console.error(error);
+    return res.status(500).json({ success: false, message: "Error creating admin", error: error.message });
   }
 };

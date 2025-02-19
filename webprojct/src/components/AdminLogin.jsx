@@ -1,30 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"; // Import axios
-import splashjpg from "../assets/splash.jpg"; // Correct path to splash.jpg
+import axios from "axios";
+import splashjpg from "../assets/splash.jpg";
 import "./AdminLogin.css";
 
 const AdminLogin = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(""); // State for error messages
+  const [error, setError] = useState(""); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Reset error message
+    setError(""); 
+
+    // Validate empty fields
+    if (!login || !password) {
+      setError("Email and password cannot be empty.");
+      return;
+    }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/admin/login", {
+      const response = await axios.post("http://localhost:5000/api/adminlogin/login", {
         email: login,
         password: password,
       });
 
-      localStorage.setItem("adminToken", response.data.token); // Store token
+      localStorage.setItem("adminToken", response.data.token); 
       console.log("Login successful!");
-      navigate("/admin-dashboard"); // Redirect to admin dashboard
+      navigate("/admin-dashboard"); 
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      setError(err.response?.data?.message || "Invalid email or password."); 
     }
   };
 
@@ -53,6 +59,13 @@ const AdminLogin = () => {
       >
         <h2 className="admin-welcome">Welcome, We hope you have a good day!</h2>
 
+        {error && (
+          <div className="error-message">
+            {error}
+            <span className="close-btn" onClick={() => setError("")}>&times;</span>
+          </div>
+        )}
+
         <div className="admin-login-container">
           <form onSubmit={handleSubmit}>
             <label>Login</label>
@@ -70,8 +83,6 @@ const AdminLogin = () => {
             />
 
             <button type="submit">Login</button>
-
-            {error && <p className="error-message">{error}</p>} {/* Show error message */}
           </form>
         </div>
       </div>

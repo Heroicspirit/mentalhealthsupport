@@ -78,15 +78,6 @@
     font-size: 16px;
 }
 
-button {
-    background: #7b8cde;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    cursor: pointer;
-}
 /* Login Button */
 .admin-login-container button {
     width: 100%;
@@ -98,11 +89,41 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 .admin-login-container button:hover {
     background: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+/* Modern Error Message */
+.error-message {
+    background: rgba(255, 77, 77, 0.9); /* Soft red with transparency */
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive Design */
