@@ -8,6 +8,8 @@ import { journalRouter } from "./route/journal/journalRoute.js";
 import dotenv from "dotenv";
 import { authenticateToken } from "./middleware/token-middleware.js";
 import { adminloginRouter } from "./route/adminlogin/adminloginRoute.js"; // Updated import
+import { adminRouter } from "./route/admin/adminRoute.js";
+
 
 dotenv.config();
 
@@ -36,6 +38,7 @@ app.use("/api/adminlogin", adminloginRouter); // Admin login does not require to
 app.use("/api/users", authenticateToken, userRouter);
 app.use("/api/appointments", authenticateToken, appointmentRouter);
 app.use("/api/journals", authenticateToken, journalRouter);
+app.use("/api/admin", authenticateToken, adminRouter);
 
 // Test route for verifying CORS
 app.get("/api/test", (req, res) => {

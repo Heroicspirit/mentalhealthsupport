@@ -7,6 +7,7 @@ import flower from "../assets/flower.jpg"; // Flower image
 const Admin = () => {
   const [appointments, setAppointments] = useState([]);
   const [selectedAppointment, setSelectedAppointment] = useState({
+    id: null,
     date: "",
     time: "",
     duration: "30 minutes",
@@ -31,17 +32,46 @@ const Admin = () => {
     }
   };
 
-  const handleUpdate = () => {
-    console.log("Update appointment:", selectedAppointment);
+  const handleUpdate = async () => {
+    try {
+      const token = localStorage.getItem("adminToken");
+      const response = await axios.put(
+        `http://localhost:5000/api/appointments/${selectedAppointment.id}`,
+        selectedAppointment,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      console.log("Appointment updated:", response.data);
+      fetchAppointments(); // Refresh the list
+    } catch (error) {
+      console.error("Error updating appointment:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem("adminToken");
+      await axios.delete(`http://localhost:5000/api/appointments/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      fetchAppointments(); // Refresh the list after deletion
+    } catch (error) {
+      console.error("Error deleting appointment:", error);
+    }
   };
 
   const handleClear = () => {
-    setSelectedAppointment({ date: "", time: "", duration: "30 minutes", problem: "Depression" });
+    setSelectedAppointment({ id: null, date: "", time: "", duration: "30 minutes", problem: "Depression" });
   };
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
     navigate("/adminlogin");
+  };
+
+  const handleEditClick = (appointment) => {
+    setSelectedAppointment(appointment);
   };
 
   return (
@@ -103,8 +133,8 @@ const Admin = () => {
                 <td>{appointment.duration}</td>
                 <td>{appointment.problem}</td>
                 <td>
-                  <button>Edit</button>
-                  <button>Delete</button>
+                  <button onClick={() => handleEditClick(appointment)}>Edit</button>
+                  <button onClick={() => handleDelete(appointment.id)}>Delete</button>
                 </td>
               </tr>
             ))}
