@@ -20,7 +20,8 @@ const Journal = sequelize.define('Journal', {
         allowNull: false
     },
     symptoms: {
-        type: DataTypes.ARRAY(DataTypes.STRING)
+        type: DataTypes.JSON,
+        defaultValue: [] 
     },
     entry: {
         type: DataTypes.TEXT,

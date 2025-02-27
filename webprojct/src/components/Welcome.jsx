@@ -40,7 +40,7 @@ const Welcome = () => {
           <ul className="left-nav">
             <li><a href="#" data-section="hero">Home</a></li>
             <li><a href="#" data-section="services">About Us</a></li>
-            <li><a href="#" data-section="contact">Contact</a></li>
+            <li><a href="#" onClick={() => scrollToSection('contact-info')}>Contact</a></li>
           </ul>
 
           <button className="admin-login-btn" onClick={navigateToAdminLogin}>
@@ -78,13 +78,13 @@ const Welcome = () => {
           <div className="footer-left">
             <p>Supporting your mental journey with professional care and compassion.</p>
           </div>
-          <div className="footer-right" id="contact">
+          <div className="footer-right" id="contact-info">
             <div className="quick-links">
               <h4>Quick Links</h4>
               <a href="#">Home</a>
               <a href="#">About Us</a>
               <a href="#">Services</a>
-              <a href="#">Contact</a>
+              <a href="#" onClick={() => scrollToSection('contact-info')}>Contact</a>
             </div>
             <div className="contact-info">
               <h4>Contact</h4>
